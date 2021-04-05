@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 基础If的使用
+        {
+            /* let a=prompt();
+            var age=window.prompt();
+            // 1.if后面如果是只有一个语法/一行代码 可以忽略{}。
+            console.log('1.if后面如果是只有一个语法/一行代码 可以忽略{}。');
+            // 大于小于必须是超过或者低于该数字
+            if(age>10)
+                console.log(age);
+            // 2.分号";"也是一条语句，空语句。
+            console.log('2.分号";"也是一条语句，空语句。');
+            if(age<10);
+            {
+                console.log('我不应该输出'+age);
+            }
+            // 3.if else 是一个整体，else匹配它同级的上一个if。
+            console.log('3.if else 是一个整体，else匹配它同级的上一个if。');
+            if(age>10){
+                if(age>20)
+                    console.log('大于20'+age);
+                else
+                    console.log('小于20'+age)
+            }else{
+                console.log('小于10'+age);
+            }
+            // 4.对于非布尔类型的会先转换成boolean后再判断。
+            console.log('4.对于非布尔类型的会先转换成boolean后再判断。');
+            if (1)
+                console.log('真');
+            // 5.比较时推荐将常量写再变量前
+            console.log('5.比较时推荐将常量写再变量前');
+            if(0==age)
+                console.log(age);
+            // 6.if else 可以嵌套使用
+            console.log('6.if else 可以嵌套使用');
+            if(age>10){
+                if(age>20)
+                    console.log('大于20'+age);
+                else
+                    console.log('小于20'+age)
+            }else{
+                console.log('小于10'+age);
+            } */
+            // 猜拳游戏
+        {
+            /* // 玩家出拳
+            let playUser=parseInt(prompt("请出拳: 0 => 石头，1 => 剪刀，2 => 布"))
+            // 电脑出拳 Math.random() 取0.0 - 0.9 的随机数字 parseInt:取整数忽略小数
+            let computer=parseInt(Math.random()*3)
+            // 石头剪刀布容器 通过下标取:Rom[0]石头
+            let Rom=["石头","剪刀","布"];
+            // 如果是玩家输入小于0或者大于2的需要重新输入
+            if(playUser<0||playUser>2)
+                playUser=parseInt(prompt("请出拳: 0 => 石头，1 => 剪刀，2 => 布"))
+            else{
+                // 输出电脑的随机数
+                console.log(computer);
+                if((playUser==1 && computer==2)
+                    ||(playUser==2 && computer==0)
+                    ||(playUser==0 && computer==1))
+                    console.log("playUser:"+Rom[playUser]+" VS computer:"+Rom[computer]+";playUser is Winer");
+                else if(playUser==computer)
+                    console.log("playUser:"+Rom[playUser]+" VS computer:"+Rom[computer]+"; it ends in a draw");
+                else
+                    console.log("playUser:"+Rom[playUser]+" VS computer:"+Rom[computer]+"; computer is Winer");
+            } */
+        }
+        }
+        
+        // Switch的使用
+        {
+            /* let num=parseInt(prompt("输入数字"));
+            switch(num){
+                case 1:
+                console.log("这是1")
+                break;
+                case 2:
+                console.log("这是2");
+                break;
+                default:
+                    console.log("这是其他数字");
+                    break;
+            }
+            let grade=["90-100","80-90","70-80","60-70"];
+            console.log(parseInt(num/10))
+            num=parseInt(num/10)
+            switch(num){
+                case 10:
+                case 9:
+                    console.log("这是A");
+                    break;
+                case 8:
+                    console.log("这是B");
+                    break;
+                case 7:
+                    console.log("这是C");
+                    break;
+                case 6:
+                    console.log("这是d");
+                    break;
+                default:
+                console.log("这是other");
+                    break;;
+            } */
+        }
+        
+        // 循环
+        {
+            /* // while循环
+            {
+                //获取0-100的随机数
+                let computer=parseInt(Math.random()*100);
+                console.log("当前数字:"+computer);
+                // 循环条件:如果随机书不等于30则一直循环输入
+                while (computer!=30) {
+                    console.log("当前数字:"+computer);
+                    if(computer=="20"){
+                        console.log("终止本次循环-----------------:"+computer);
+                        continue;
+                    }
+                    computer=parseInt(Math.random()*100);
+                }
+                console.log("computer=30的情况下才可以出来");
+            }
+            // do-while循环
+            {
+                //获取0-100的随机数
+                let computer=parseInt(Math.random()*100);
+                console.log("进入前的数字:"+computer);
+                // 循环条件:如果随机书等于30才可以进入循环,但是do-while可以先进行第一次循环后在第二次循环前才进行条件判断
+                do{
+                    console.log("当前数字:"+computer);
+                    continue
+                    computer=parseInt(Math.random()*100);
+                }
+                while (computer==30)
+                console.log("computer!=30的情况下才可以出来");
+            }
+            // for循环
+            {
+
+            } */
+        }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
