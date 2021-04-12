@@ -88,25 +88,98 @@
             }
             // 匿名函数
             {
-                // 重复执行
+                // 定义全局函数
                 // document.onclick=function(){
                 //     console.log('点击');
                 // }
                 // 定时器
-                setInterval(() => {
+                /* setInterval(() => {
                     console.log(Date.now());
-                }, 2000);
+                }, 2000); */
                 // 立即执行函数
-                (function(){
+                /* (function(num1,num2,num3){
+                    console.log(num1,num2,num3);
                     console.log(arguments);
-                })(1,2,3)
+                })(1,2,3) */
             }
+            // 回调函数
+            {
+                // 计算器功能
+                // 计算函数
+               /*  function Add(num1,num2) {return num1+num2;}
+                function Sub(num1,num2) {return num1-num2;}
+                function Mul(num1,num2) {return num1*num2;}
+                function Divide(num1,num2) {return num1/num2;}
+                // 计算结果 num:计算的数字,Func:计算的函数
+                function Cal(num1,num2,Func) {
+                    return Func(num1,num2);
+                }
+                let num1=prompt();
+                let num2=prompt();
+                // 计算输入的两个数字,通过最后一个参数方法名进行计算
+                let result=Cal(parseInt(num1),parseInt(num2),Add);
+                console.log(result); */
+            }
+            // 变量的作用域
+            {
+                // 全局变量
+                // 全局变量在当前页面都可以使用
+                /* let Globle='Globle';
+                console.log(Globle);
+                function name() {
+                    Globle='局部';
+                }
+                name();
+                console.log(Globle); */
 
+                // 局部变量
+                // 只能在声明的{}中使用,外部无法使用
+                /* {
+                    // 使用声明函数的变量会区分作用域,如果不使用声明变量则默认是全局变量
+                    // let jubu="局部";
+                    jubu="局部";
+                    console.log(jubu);
+                }
+                console.log(jubu); */
 
+                // 作用域链
+                // 变量预解析
+                // 会将变量先进行声明,所以这里输出时undefined
+                /* console.log(yujiexi);
+                // 使用时赋值
+                var yujiexi='1';
+                console.log(yujiexi); */
+            }
+            
 
 
         }
+        // 对象
+        {
+            // 为什么要用对象
+            {
+                // 过多的参数使用对象进行封装,可以简化代码,提高重用性和可维护性.
+                // 使用对象前
+                /* function Person(name,sex,age) {
+                    console.log(name);
+                    console.log(sex);
+                    console.log(age);
+                }
+                // 通过对象进行封装后,用来封装的对象可以重复使用.
+                function Person(person) {
+                    console.log(person.name);
+                    console.log(person.sex);
+                    console.log(person.age);
+                } */
+            }
+            // 什么是对象
+            {
+                // 类: 类型/类别.比如人类和动物.在JavaScript中默认类是Object
+                // 对象: 有自己的特征和行为
+            }
 
+
+        }
 
     </script>
 </body>
