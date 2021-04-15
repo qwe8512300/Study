@@ -177,8 +177,72 @@
                 // 类: 类型/类别.比如人类和动物.在JavaScript中默认类是Object
                 // 对象: 有自己的特征和行为
             }
+            // 对象字面量
+            {
+                // 定义对象
+                // let person={
+                //     // 对象的属性
+                //     name:'张三',
+                //     sex:22,
+                //     ch:'法外狂徒',
+                //     // 对象的方法
+                //     func:function (){
+                //         console.log('法外狂徒张三');
+                //     }
+                // }
+                // console.log(person);
+                // person.func();
 
-
+            }
+            // 常见创建对象的方式
+            {
+                // 1.省略new Object();
+                /* let person={
+                    // 对象的属性
+                    name:'张三',
+                    sex:22,
+                    ch:'法外狂徒',
+                    // 对象的方法
+                    func:function (){
+                        console.log('法外狂徒张三');
+                    }
+                } */
+                // 2.通过New的方式创建
+                /* let person=new Object();
+                person.name='李四';
+                person.sex='男';
+                person.Func=function(){
+                    console.log('牢底坐穿李四');
+                }
+                console.log(person);
+                person.Func(); */
+                // 3.通过给予相关信息从工厂创建
+                /* function obj(name,sex) {
+                    let person=new Object();
+                    person.name=name;
+                    person.sex=sex;
+                    person.Func=function(){
+                        console.log('牢底坐穿'+person.name);
+                    }
+                    return person;
+                }
+                let person2=obj('name','1');
+                console.log(person2);
+                person2.Func(); */
+                // 自定义构造函数
+                /* function Person(name,sex) {
+                    this.name=name;
+                    this.sex=sex;
+                    this.Func=function(){
+                        console.log('牢底坐穿'+name);
+                    }
+                }
+                let person3=new Person('name2','v');
+                console.log(person3);
+                person3.Func(); */
+            }
+            // 
+            
         }
 
     </script>
