@@ -337,9 +337,186 @@
                 console.log(pp.name); */
             }
             
-            // 
+            // 基础类型和引用类型在堆栈中的区别
+            {
+                // 基础类型
+                /* 
+                    基础类型在声明后都属于独立存在,就算是函数中用来接受变量的形参也是一种独立的变量.
+                    形参在函数中相当于用新的变量进行赋值并不会影响函数外的变量 
+                */
+                // 声明两个变量
+                /* let name=1,sex=2;
+                // 输出
+                console.log(name,sex);
+                // 传递给方法进行自增
+                Func(name,sex);
+                // 再次输出变量,并没有受到影响
+                console.log(name,sex);
+                function Func(name,sex) {
+                    name++;
+                    sex++;
+                    console.log(name,sex);
+                } */
+
+
+                // 引用类型
+                /* 
+                    引用类型(对象)在二次创建前无论用多少个对象去接收它,它都是指向一个对象.
+                    如果在这期间无论是那个对象对它进行修改那么其他的对象都会收到影响.
+                 */
+                // 声明一个对象
+                /* function Person(name,sex) {
+                    this.name=name;
+                    this.sex=sex;
+                }
+                // 声明一个函数用于修改对象性别
+                function UpdatePerson(person) {
+                    person.sex='女';
+                }
+                // 创建一个对象并给姓名和性别
+                let per=new Person('刘烨','男');
+                // 输出对象的信息
+                console.log(per.name,per.sex);
+                // 调用修改性别的函数
+                UpdatePerson(per);
+                // 再次输出对象信息,发现性别变化了
+                console.log(per.name,per.sex);
+                // 用一个新的对象接收per对象
+                let per2=per;
+                // 将性别修改回男
+                per2.sex='男';
+                // 输出对象1和对象2
+                console.log(per.name,per.sex);
+                console.log(per2.name,per2.sex);
+                // 调用修改
+                UpdatePerson(per2);
+                // 再次输出对象信息发现两个对象都被修改了
+                console.log(per.name,per.sex);
+                console.log(per2.name,per2.sex);
+                // 创建对象3
+                let per3=new Person('刘火华','男');
+                // 将对象1的性别修改回男
+                per.sex='男';
+                // 输出 
+                console.log(per.name,per.sex);
+                console.log(per3.name,per3.sex);
+                // 修改对象3
+                UpdatePerson(per3);
+                // 由于对象3是新创建的,在修改对象3的时候对象1不会受到影响
+                console.log(per.name,per.sex);
+                console.log(per3.name,per3.sex);
+ */
+                
+            }
         
-        
+        }
+
+        // 内置对象
+        {
+            // Arrary 数组对象
+            {
+                // 文档链接:https://www.w3school.com.cn/js/jsref_obj_array.asp
+                // 常用方法
+                var arr=["name1",'name2','name3'];
+                // join 将数组拼接成字符串
+                console.log(arr.join('-'));
+                // 追加一个元素 返回数组长度
+                arr.push('name4','name5');
+                console.log(arr.join('-'));
+                // 删除最后一个元素并返回被删除的元素
+                console.log(arr.pop());
+                // 删除第一个元素并返回被删除的元素
+                console.log(arr.shift());
+                console.log(arr);
+                // 在开头添加一个元素 返回数组长度
+                console.log(arr.unshift('name1'));
+                console.log(arr);
+                // 反转数组顺序
+                console.log(arr.reverse());
+                let arr2=['se1','se2'];
+                // 数组合并
+                console.log(arr.concat(arr2));
+                console.log(arr);
+                // 数组循环
+                arr.forEach(function (value,index) {
+                    console.log(value,index);
+                });
+                // 排序
+                // 默认排序根据字符编码
+                console.log(arr.sort());
+                // 设定排序规则
+                function sortName2(a) {
+                    // 如果是name2的话排在前面
+                    if(a=='name2')
+                    return -1;
+                    // 如果是name4的话排在前面
+                    if(a=='name4')
+                    return -1;
+                }
+                console.log(arr.sort(sortName2));
+
+                function sortNumber(a,b) {
+                    return a-b;
+                }
+                // 模拟sort排序
+                function sortCompare(array,fnCompare) {
+                    // 循环整个数组
+                    for (var i = 0; i < array.length-1; i++) {
+                        var sortFlag=true;
+                        // 控制比较次数
+                        for (var j = 0; j < array.length-1-i; j++) {
+                            // 判断比较的数字结果 如果前一个数字比后一个数字大才能进if
+                            if (fnCompare(array[j],array[j+1])>0) {
+                                sortFlag=false;
+                                // 替换值的顺序
+                                var temp=array[j];
+                                array[j]=array[j+1];
+                                array[j+1]=temp;
+                            }
+                        }
+                        if(sortFlag)
+                            break;
+                        /* 
+                            [10,20,5,123,222,3]
+                            第一次循环:
+                                10>20?  小于保持
+                                20>5?   大于,换位置 [10,5,20,123,222,3]
+                                20>123? 小于,保持
+                                123>222?小于,保持
+                                222>3?  大于,换位置 [10,5,20,123,3,222]
+                            第二次循环:
+                                10>5?   大于,换位置 [5,10,20,123,3,222]
+                                10>20?  小于,保持  [5,10,20,123,3,222]
+                                20>123? 小于,保持
+                                123>3?  大于,换位置 [5,10,20,3,123,222]
+                                123>222?小于,保持
+                            第三次循环:
+                                5>10?   小于,保持
+                                10>20?  小于,保持
+                                20>3?   大于,换位置 [5,10,3,20,123,222]
+                                20>123? 小于,保持
+                                123>222?小于,保持
+                            第四次循环:
+                                5>10?   小于,保持
+                                10>3?   大于,换位置 [5,3,10,20,123,222]
+                                10>20?  小于,保持
+                                20>123? 小于,保持
+                                123>222?小于,保持
+                            第五次循环:
+                                5>3?    大于,换位置 [3,5,10,20,123,222]
+                                5>10?   小于,保持
+                                10>20?  小于,保持
+                                20>123? 小于,保持
+                                123>222?小于,保持
+                        */
+                    }
+                }
+
+                let arrSort=[10,20,5,123,222,3];
+                console.log(arrSort.sort());
+                sortCompare(arrSort,sortNumber);
+                console.log(arrSort);
+            }
         }
 
     </script>

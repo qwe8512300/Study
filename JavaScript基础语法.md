@@ -278,6 +278,48 @@ switch(num){
 
 4. ##### 堆和栈
 
-   - 栈: 由操作系统自动分配释放,存放函数的参数,局部变量等
+   - 栈: 由操作系统自动分配释放,存放函数的参数,局部变量等(基本参数类型)
+     - 函数内与函数外的变量都是独立的.相互之间互不影响.
+     - ![image-20210418155426168](D:\Work\新建文件夹\Study\Image\image-20210418155426168.png)
    - 堆:存储复杂类型(对象),需要手动释放或者由垃圾回收机制回收.
+     - 在二次创建前无论用多少个对象去接收它,它都是指向一个对象.
+     - 如果在这期间无论是那个对象对它进行修改那么其他的对象都会收到影响.
+     - ![image-20210418163041913](D:\Work\新建文件夹\Study\Image\image-20210418163041913.png)
    - **JS中没有堆栈**
+
+### 内置对象
+
+#### 概念
+
+- 由JavaScript提供的对象称之为内置对象
+
+#### Array对象
+
+- 搜索关键字 [Arrary对象](https://www.baidu.com/s?wd=Arrary%E5%AF%B9%E8%B1%A1&rsv_spt=1&rsv_iqid=0x8ddfe3f70000ceb1&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=&tn=98010089_dg&ch=14&rsv_enter=0&rsv_dl=ib&rsv_btype=i&inputT=1008)
+- 使用方法可以在链接中进行了解 https://www.runoob.com/jsref/jsref-obj-array.html
+- instanceof : 判断是否是目标类型
+  - console.log( arrary instanceof Array);
+  - console.log( arrary instanceof Number);
+- isArrary():判断是否是数组.
+  - Arrary.IsArrary(obj)
+
+1. 常用方法
+   - Join(分隔符),用分隔符将数组的拼接成一个字符串. 栈:先进后出原则
+   - push():将参数添加到数组末尾,并返回数组后的长度.
+   - pop():移除数组最后一个元素,减少数组的length值,并返回移除的元素.
+   - shift():删除第一个元素,减少数组的length值,并返回移除的元素.
+   - unshift():将参数添加到数组开头,并返回数组后的长度.
+   - reverse():将数组值顺序反转.
+   - concat():将两个数组合并.
+   - forEach():循环数组.
+   - sort():数组排序,可以传递自定义的排序规则进行调整
+     - 冒泡排序
+
+#### Math对象
+
+#### String对象
+
+#### Date对象
+
+​	
+
