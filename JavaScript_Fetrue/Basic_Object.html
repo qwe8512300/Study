@@ -415,9 +415,9 @@
         {
             // Arrary 数组对象
             {
-                // 文档链接:https://www.w3school.com.cn/js/jsref_obj_array.asp
+                 // 文档链接:https://www.w3school.com.cn/js/jsref_obj_array.asp
                 // 常用方法
-                var arr=["name1",'name2','name3'];
+                /* var arr=["name1",'name2','name3'];
                 // join 将数组拼接成字符串
                 console.log(arr.join('-'));
                 // 追加一个元素 返回数组长度
@@ -466,6 +466,7 @@
                         // 控制比较次数
                         for (var j = 0; j < array.length-1-i; j++) {
                             // 判断比较的数字结果 如果前一个数字比后一个数字大才能进if
+                            // fnCompare:用来判断两个数比较方式
                             if (fnCompare(array[j],array[j+1])>0) {
                                 sortFlag=false;
                                 // 替换值的顺序
@@ -475,7 +476,7 @@
                             }
                         }
                         if(sortFlag)
-                            break;
+                            break; */
                         /* 
                             [10,20,5,123,222,3]
                             第一次循环:
@@ -509,13 +510,36 @@
                                 20>123? 小于,保持
                                 123>222?小于,保持
                         */
-                    }
-                }
-
+                //     }
+                // }
+/* 
                 let arrSort=[10,20,5,123,222,3];
                 console.log(arrSort.sort());
                 sortCompare(arrSort,sortNumber);
-                console.log(arrSort);
+                console.log(arrSort); 
+                // map 将数组进行循环后返回一个新的数组
+                let arrMap=arrSort.map(function (value,index) {
+                    // console.log(value,index,array);
+                    return value*10;
+                });
+                console.log(arrMap);
+                // 将数组筛选,返回符合条件的数据
+                let arrFilter=arrSort.filter(function(value,index) {
+                    console.log(value,index);
+                    if (value==3)
+                    return value;
+                    
+                })
+                console.log(arrFilter); */
+            }
+        
+            // Math 数学对象
+            {
+                // 随机数
+                let math=Math.random();
+                console.log(math);
+                // 取3-8的随机数
+                console.log(math*(8-3)+3);
             }
         }
 
