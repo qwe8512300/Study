@@ -544,6 +544,8 @@
         }
         // 正则表达式
         {
+            // 匹配
+            {
             // 匹配邮箱信息
             /* 
                 ^/$ :正则开始/结束字符,
@@ -558,24 +560,24 @@
                 必须包含字符'.'后加上字母或者0-9的数字1个及以上
                 例如:12s3-a@12.23.23.23.co.m.3/12s9a@12.3
              */
-            var pattern = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+           /*  var pattern = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
             str = 'HR@hao123.com';
-            console.log(pattern.test(str));
+            console.log(pattern.test(str)); */
             // 匹配手机号
-            /* 
-                示例1   :^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
-                ^/$     :正则表达式开头和结尾.
-                [0-9]   :0-9之间的数字,
-                {次数}  :花括号表示前面的规则可出现的次数如果是{1,}:表示1次及以上
-                |       :或者
-                \d      :与[0-9]一样表示0-9之间的数字
-                {8}     :必须是8个
-                完整解释: 必须是13开头加上一位0-9之间的数字,或者14开头加上5或者7,或者15开头加上0或者1或者```9的数字,或者18开头加上1或者```9的数字,
-                加上8位0-9的数字
-                示例2   :^1\d{10}$
-                完整解释: 必须是1开头加上10位0-9的数字
-            */
-            pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+            
+            // 示例1   :^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+            // ^/$     :正则表达式开头和结尾.
+            // [0-9]   :0-9之间的数字,
+            // {次数}  :花括号表示前面的规则可出现的次数如果是{1,}:表示1次及以上
+            // |       :或者
+            // \d      :与[0-9]一样表示0-9之间的数字
+            // {8}     :必须是8个
+            // 完整解释: 必须是13开头加上一位0-9之间的数字,或者14开头加上5或者7,或者15开头加上0或者1或者```9的数字,或者18开头加上1或者```9的数字,
+            // 加上8位0-9的数字
+            // 示例2   :^1\d{10}$
+            // 完整解释: 必须是1开头加上10位0-9的数字
+           
+            /* pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
             str = '13973829220';
             console.log(pattern.test(str));
             // 校验数字
@@ -583,6 +585,57 @@
             pattern = /^[0-9]*$/,
             str = '13973829220';
             console.log(pattern.test(str));
+
+            // 创建正则对象
+            var reg=new RegExp('^ab[a-z]$','i');
+            var reg2=/\w/g;
+            // test():匹配正则
+            console.log(reg.test('aba'));
+            console.log(reg2.test('a2'));
+            // exec():提取正则
+            console.log(reg2.exec('aaa'));
+            console.log(reg2.exec('啊速度13973829220vvvv'));
+
+            // String的封装正则
+            // match():提取匹配的多个数据
+            var reg3='1啊速度13973829220vvvv';
+            // 提取数字1和2
+            console.log(reg3.match(/[1]|[2]|v/g));
+
+
+            // 不带^$开始结束符号的是匹配内容只要有符合的就为true,等同于indexof
+            var test=new RegExp(/啊|s/,'gi');
+            var val='as啊ad';
+            console.log(test.exec(val));
+            // console.log(val);
+            console.log(test.exec(val));
+            // 校验日期
+            var dateStr='2021-04-29'
+            var dateReg=new RegExp(/(\d{4})-(\d{1,2})-(\d{1,2})/,'gi')
+            console.log(dateReg.test(dateStr));
+            // 通过$符来获取经过()分组的信息
+            console.log(RegExp.$1,RegExp.$2,RegExp.$3,RegExp.$4); */
+            }
+            // 替换
+            {
+                var Rep='      sdoaksjkqwe******* oasdkwm------- jndqwje qwp,ds asewe ';
+                console.log(Rep);
+                // 替换首尾空格
+                console.log(Rep.trim());
+                // 将空格替换成+++
+                console.log(Rep.replace(/\s/gi,'+++'));
+                // 将字符数字替换成|
+                console.log(Rep.replace(/\w/gi,'|'));
+            }
+            // 贪婪和非贪婪
+            {
+                var str='aaaaaaaaasssssssssscccaaaacccccccwwa';
+                // 贪婪模式:匹配全部a
+                console.log(str.match(/a/)[0]);
+                // 非贪婪
+                console.log(str.match(/ww{0}/)[0]);
+                console.log(str.match(/a{2}/)[0]);
+            }
         }
 
     </script>

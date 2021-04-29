@@ -363,4 +363,81 @@ switch(num){
 2. 在线测试: [在线测试正则表达式]( https://c.runoob.com/front-end/854)
 3. 限定字符
    - ![image-20210425195716992](D:\Work\新建文件夹\Study\Image\image-20210425195716992.png)
+   
+4. JS中的正则使用
+   1. 创建正则对象
+      - 方式1:var reg=new RegExp('\w',i);
+      - 方式2:var reg=/\w/gi
+      - 含有开始和结束字符'^'/'$'与没有的区别:含有字符的适用于完整的一串字符校验,任意一处不符合都是false,没有开始结束字符的等同于indexof():只要用于校验的字符中包含该校验字符都为true
+      - 参数:![image-20210427193924545](D:\Work\新建文件夹\Study\Image\image-20210427193924545.png)
+      
+   2. 与正则表达式相关的方法
+      1. 针对RegExp对象
+         - test():匹配
+         - exec():提取(只能提取到一个内容)
+      2. 针对String对象
+         - match():提取(可以提取多个内容)
+         - replace():替换
+         - split():切割
+         - search():搜索
+      
+   3. 匹配
 
+      - ```js
+        // 校验日期
+        var dateStr='2021-04-29'
+        var dateReg=new RegExp(/(\d{4})-(\d{1,2})-(\d{1,2})/,'gi')
+        console.log(dateReg.test(dateStr));
+        // 校验邮箱
+        var pattern = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+        str = 'HR@hao123.com';
+        console.log(pattern.test(str));
+        ```
+
+   4. 提取
+
+      - ```js
+        var test=new RegExp(/啊|s/,'gi');
+        var val='as啊ad';
+        console.log(test.exec(val));
+        
+        // match():提取匹配的多个数据
+        var reg3='1啊速度13973829220vvvv';
+        // 提取数字1和2
+        console.log(reg3.match(/[1]|[2]|v/g));
+        ```
+
+   5. 替换
+
+      - ```js
+        var Rep='      sdoaksjkqwe******* oasdkwm------- jndqwje qwp,ds asewe ';
+        console.log(Rep);
+        // 替换首尾空格
+        console.log(Rep.trim());
+        // 将空格替换成+++
+        console.log(Rep.replace(/\s/gi,'+++'));
+        // 将字符数字替换成|
+        console.log(Rep.replace(/\w/gi,'|'));
+        ```
+
+   6. 贪婪和非贪婪模式
+
+      1. 概念
+
+         - 贪婪:尽可能的多匹配
+         - 非贪婪:尽可能的少匹配
+
+      2. 语法
+
+         - 在匹配的元字符后加上量词*、+、?、{},将会时量词变成非贪婪.如果不使用则时非贪婪模式
+
+      3. 实例
+
+         - ```js
+           var str='aaaaaaaaasssssssssscccaaaacccccccwwa';
+           // 贪婪模式:匹配全部a
+           console.log(str.match(/a/)[0]);
+           // 非贪婪
+           console.log(str.match(/ww{0}/)[0]);
+           console.log(str.match(/a{2}/)[0]);
+           ```
