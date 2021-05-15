@@ -7,6 +7,73 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div style="width: 300px;height: 200px;background-color: red;margin: 10%;" id="div">
+        <button>兄弟节点</button>
+        <!-- 这是一个注释 -->
+        <button id="btn"></button>
+        <span>span</span>
+        <br>
+        <a href="#">超链接</a>
+
+    </div>
+    <script>
+        {
+            // 获取节点
+            {
+                // 获取当前元素
+                var btn=document.getElementById('btn');
+                var div=document.getElementById('div');
+                console.log(btn);
+                // 获取父节点
+                {
+                    console.log('获取父节点元素',btn.parentElement,btn.parentNode);
+                }
+                // 获取上一个兄弟节点
+                {
+                    console.log('获取上一个节点元素',btn.previousElementSibling);
+                    console.log('获取上一个节点',btn.previousSibling);
+                }
+                // 获取下一个兄弟节点
+                {
+                    console.log('获取下一个节点元素',btn.nextElementSibling);
+                    console.log('获取下一个节点',btn.nextSibling);
+                }
+                // 获取第一个子节点
+                {
+                    console.log('第一个子节点元素',div.firstElementChild);
+                    console.log('第一个子节点',div.firstChild);
+                }
+                // 获取最后一个子节点
+                {
+                    console.log('最后一个子节点元素',div.lastElementChild);
+                    console.log('最后一个子节点',div.lastChild);
+                }
+                // 获取所有子节点
+                {
+                    console.log('最后所有节点总数',div.childElementCount);
+                    console.log('最后所有节点元素',div.childNodes);
+                    console.log('最后所有节点',div.children);
+                }
+                // 获取某一种节点元素
+                {
+                    div.childNodes.forEach(function (value,key) {
+                        // console.log(value.nodeType,value,key);
+                        // 取出div中所有注释
+                        if(value.nodeType==8)
+                            console.log('元素类型：'+value.nodeType,value);
+                        if (value.nodeType==3) {
+                            console.log('元素类型：'+value.nodeType,value);
+                        }
+                        // 取出节点
+                        if (value.nodeType==1) {
+                            console.log('元素类型：'+value.nodeType,value);
+                        }
+                    })
+                }
+            
+            
+            }
+        }
+    </script>
 </body>
 </html>
